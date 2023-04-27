@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "cross-env NODE_OPTIONS='--inspect' next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
@@ -36,6 +36,7 @@
     "@storybook/nextjs": "^7.0.7",
     "@storybook/react": "^7.0.7",
     "@storybook/testing-library": "^0.0.14-next.2",
+    "cross-env": "^7.0.3",
     "eslint-config-prettier": "^8.8.0",
     "husky": "^8.0.3",
     "prettier": "^2.8.8",
