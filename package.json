@@ -26,15 +26,6 @@
     "tailwindcss": "3.3.2",
     "typescript": "5.0.4"
   },
-  "engines": {
-    "node": ">=18.16.0",
-    "npm": "USE-YARN",
-    "yarn": ">=1.22.19"
-  },
-  "volta": {
-    "node": "18.16.0",
-    "yarn": "1.22.19"
-  },
   "devDependencies": {
     "@commitlint/cli": "^17.6.1",
     "@commitlint/config-conventional": "^17.6.1",
@@ -49,5 +40,14 @@
     "husky": "^8.0.3",
     "prettier": "^2.8.8",
     "storybook": "^7.0.7"
+  },
+  "engines": {
+    "node": ">=18.16.0",
+    "npm": "USE-YARN",
+    "yarn": ">=1.22.19"
+  },
+  "volta": {
+    "node": "18.16.0",
+    "yarn": "1.22.19"
   }
 }
