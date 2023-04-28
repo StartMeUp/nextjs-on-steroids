@@ -2523,6 +2523,18 @@
   dependencies:
     tslib "^2.4.0"
 
+"@t3-oss/env-core@0.2.2":
+  version "0.2.2"
+  resolved "https://registry.yarnpkg.com/@t3-oss/env-core/-/env-core-0.2.2.tgz#e216ce44d4618d6f69c240efc02bd9e15221035b"
+  integrity sha512-Jiuph14/L3L9EDaU0O0YiLeaKUcWA9c3mWYuKem8+L64i3Iwz+IbKdl5Jp4cx+JbOsS/aptwGZplnxSHhm2gMQ==
+
+"@t3-oss/env-nextjs@^0.2.2":
+  version "0.2.2"
+  resolved "https://registry.yarnpkg.com/@t3-oss/env-nextjs/-/env-nextjs-0.2.2.tgz#e638e22563cb1782a3c8f5d837caa00714de22a2"
+  integrity sha512-9LnVpTkf/8WkggyVN6Liz9Ma9a7fLzV00b5BngWj3HI3iWDfddsWaqCf/H0f46Bgu29NubP3Bwajf1JieVrxFA==
+  dependencies:
+    "@t3-oss/env-core" "0.2.2"
+
 "@testing-library/dom@^8.3.0":
   version "8.20.0"
   resolved "https://registry.yarnpkg.com/@testing-library/dom/-/dom-8.20.0.tgz#914aa862cef0f5e89b98cc48e3445c4c921010f6"

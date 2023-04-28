@@ -20,6 +20,12 @@
       "@/env": ["./src/env.mjs"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "**/*.mjs"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "**/*.mjs",
+    "next.config.mjs"
+  ],
   "exclude": ["node_modules"]
 }
