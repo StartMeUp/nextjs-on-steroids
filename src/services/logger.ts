@@ -1,11 +1,11 @@
 import pino, { Level } from 'pino'
 
-// you might not want to display logs in production
+// you might want to display logs in production
 // adjust the level of log display
 const shouldDisplayLogs = !process.env.IS_PROD
 
 const logger = pino({
-  level: process.env.MINIMUM_LOG_LEVEL ?? 'trace',
+  level: process.env.NEXT_PUBLIC_MINIMUM_LOG_LEVEL || 'trace',
   transport: {
     target: 'pino-pretty',
     options: {
