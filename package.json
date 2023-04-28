@@ -6,7 +6,7 @@
     "dev": "cross-env NODE_OPTIONS='--inspect' next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
+    "lint": "next lint --fix",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "prettier": "prettier --write .",
@@ -38,6 +38,7 @@
     "@storybook/testing-library": "^0.0.14-next.2",
     "cross-env": "^7.0.3",
     "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-simple-import-sort": "^10.0.0",
     "husky": "^8.0.3",
     "prettier": "^2.8.8",
     "storybook": "^7.0.7"
