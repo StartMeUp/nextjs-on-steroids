@@ -15,8 +15,18 @@ const logger = pino({
   }
 })
 
+const levelIcons: Record<Level, string> = {
+  error: '❌',
+  trace: '📄',
+  info: 'ℹ️',
+  debug: '🚧',
+  warn: '⚠️',
+  fatal: '💀'
+}
+
 const displayLog = (level: Level) => (title: string, msg: string) => {
-  if (shouldDisplayLogs) logger[level](title + ' => ' + msg)
+  if (shouldDisplayLogs)
+    logger[level](levelIcons[level] + ' ' + title.toUpperCase() + ' => ' + msg)
 }
 
 export const log = {
