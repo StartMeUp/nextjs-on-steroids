@@ -9,7 +9,7 @@ const logger = pino({
   transport: {
     target: 'pino-pretty',
     options: {
-      ignore: 'pid,hostname',
+      ignore: 'pid,hostname,level',
       translateTime: 'SYS:HH:MM:ss'
     }
   }
@@ -24,9 +24,11 @@ const levelIcons: Record<Level, string> = {
   fatal: '💀'
 }
 
-const displayLog = (level: Level) => (title: string, msg: string) => {
+const displayLog = (level: Level) => (title: string, msg: string | Error) => {
   if (shouldDisplayLogs)
-    logger[level](levelIcons[level] + ' ' + title.toUpperCase() + ' => ' + msg)
+    logger[level](
+      `${levelIcons[level]} ${title.toUpperCase()}${msg ? ' => ' + msg : ''}`
+    )
 }
 
 export const log = {
@@ -36,4 +38,15 @@ export const log = {
   warn: displayLog('warn'),
   error: displayLog('error'),
   fatal: displayLog('fatal')
+}
+
+export const errorLog = (
+  error: unknown,
+  title: string,
+  errorMsg: 'Error msg only' | 'full Error object' = 'Error msg only'
+) => {
+  if (error instanceof Error) {
+    const msg = errorMsg === 'Error msg only' ? error.message : error
+    log.error(title, msg)
+  }
 }

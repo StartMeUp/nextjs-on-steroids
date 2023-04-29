@@ -1,4 +1,4 @@
-import { log } from '@/services/logger'
+import { log } from '@/logger'
 
 export default function Home() {
   log.info('INFO', 'this is an info')

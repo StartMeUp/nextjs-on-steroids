@@ -16,7 +16,7 @@
     "incremental": true,
     "paths": {
       "@/*": ["./src/*"],
-      "@/logger": ["./src/services/logger"],
+      "@/logger": ["./src/assets/services/logger"],
       "@/env": ["./src/env.mjs"]
     }
   },
