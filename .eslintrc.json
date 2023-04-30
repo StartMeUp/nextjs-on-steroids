@@ -1,5 +1,6 @@
 {
-  "plugins": ["simple-import-sort"],
+  "plugins": ["simple-import-sort", "@typescript-eslint"],
+  "parser": "@typescript-eslint/parser",
   "rules": {
     "simple-import-sort/imports": "error",
     "simple-import-sort/exports": "error",
@@ -7,5 +8,9 @@
     "import/newline-after-import": "error",
     "import/no-duplicates": "error"
   },
-  "extends": ["next", "next/core-web-vitals", "eslint:recommended"]
+  "extends": [
+    "eslint:recommended",
+    "next/core-web-vitals",
+    "plugin:@typescript-eslint/recommended"
+  ]
 }
