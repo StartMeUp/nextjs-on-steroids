@@ -7,10 +7,5 @@
     "import/newline-after-import": "error",
     "import/no-duplicates": "error"
   },
-  "extends": [
-    "next",
-    "next/core-web-vitals",
-    "eslint:recommended",
-    "prettier" // Add "prettier" last.
-  ]
+  "extends": ["next", "next/core-web-vitals", "eslint:recommended"]
 }

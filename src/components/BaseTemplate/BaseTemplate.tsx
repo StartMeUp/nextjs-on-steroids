@@ -1,9 +1,10 @@
-import { FC } from 'react'
-
-export interface IBaseTemplate {}
-
-const BaseTemplate: FC<IBaseTemplate> = () => {
-  return <div>Hello world!</div>
+type IBaseTemplate = {
+  customStyle: string
+  text: string
 }
 
-export default BaseTemplate
+const baseStyle = 'border-1 p-4 rounded-lg'
+
+export const BaseTemplate = ({ customStyle, text }: IBaseTemplate) => {
+  return <div className={baseStyle + ' ' + customStyle}>{text}</div>
+}
