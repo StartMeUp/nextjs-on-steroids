@@ -1,4 +1,4 @@
-import { CustomFC, resolveStyle } from '../../assets/utils/BaseTemplate'
+import { resolveStyle } from '../../assets/utils/customFC'
 
 // *** Blueprint ***
 
@@ -7,13 +7,12 @@ type BaseTemplateType = {
   text: string
 }
 
-const BaseTemplateStyle = 'border-1 p-4 rounded-lg'
-export const BaseTemplate: CustomFC<BaseTemplateType> = ({
-  variantStyle,
-  text
-}) => {
+const baseStyleBaseTemplate = 'border-1 p-4 rounded-lg'
+export const BaseTemplate = ({ variantStyle, text }: BaseTemplateType) => {
   return (
-    <div className={resolveStyle(BaseTemplateStyle, variantStyle)}>{text}</div>
+    <div className={resolveStyle(baseStyleBaseTemplate, variantStyle)}>
+      {text}
+    </div>
   )
 }
 
