@@ -1,5 +1,7 @@
 import { resolveStyle } from '@/functions'
 
+import { mockBaseTemplateProps } from './BaseTemplate.mocks'
+
 // *** Blueprint ***
 
 export type BaseTemplateType = {
@@ -18,16 +20,10 @@ export const BaseTemplate = ({ variantStyle, text }: BaseTemplateType) => {
 
 // *** Variant ***
 export const PrimaryBaseTemplate = () => (
-  <BaseTemplate
-    variantStyle="border-blue-600 bg-blue-200"
-    text="Primary Base Template"
-  />
+  <BaseTemplate {...mockBaseTemplateProps.primary} />
 )
 
 // *** Variant ***
 export const SecondaryBaseTemplate = () => (
-  <BaseTemplate
-    variantStyle="border-red-600 bg-red-200"
-    text="secondary Base Template"
-  />
+  <BaseTemplate {...mockBaseTemplateProps.secondary} />
 )
