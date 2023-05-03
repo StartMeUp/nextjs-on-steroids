@@ -1,23 +1,47 @@
+import { ComponentPropsWithoutRef, MouseEventHandler } from 'react'
+
 import { resolveStyle } from '@/functions'
 
-import { mockButtonProps } from './Button.mocks'
-
-// *** Blueprint ***
+// *** Button Blueprint ***
 
 export type ButtonType = {
-  variantStyle: string
-  text: string
-}
+  text: 'delete' | 'to do' | 'done'
+  disabled: boolean
+  onClick: MouseEventHandler<HTMLButtonElement>
+} & ComponentPropsWithoutRef<'button'>
 
-const baseStyleButton = 'border border-3 p-4 rounded-lg'
-export const Button = ({ variantStyle, text }: ButtonType) => {
+const baseStyleButton = 'border-0 px-4 py-2 rounded-full text-white flex'
+
+const buttonColors: Record<ButtonType['text'], string> = {
+  delete: 'bg-red-600',
+  'to do': 'bg-blue-600',
+  done: 'bg-green-600'
+}
+export const Button = ({ text, disabled = false, onClick }: ButtonType) => {
   return (
-    <div className={resolveStyle(baseStyleButton, variantStyle)}>{text}</div>
+    <button
+      className={resolveStyle(baseStyleButton, buttonColors[text])}
+      disabled={disabled}
+      onClick={onClick}
+    >
+      {text}
+    </button>
   )
 }
 
-// *** Variant ***
-export const PrimaryButton = () => <Button {...mockButtonProps.primary} />
+// *** Variant delete button***
 
-// *** Variant ***
-export const SecondaryButton = () => <Button {...mockButtonProps.secondary} />
+export const DeleteButton = ({
+  onClick,
+  disabled
+}: Pick<ButtonType, 'onClick' | 'disabled'>) => {
+  return <Button onClick={onClick} disabled={disabled} text="delete" />
+}
+
+export const UpdateButton = ({
+  onClick,
+  disabled,
+  text
+}: ButtonType & { text: 'to do' | 'done' }) => {
+  return <Button onClick={onClick} disabled={disabled} text={text} />
+}
