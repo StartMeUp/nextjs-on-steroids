@@ -1,6 +1,6 @@
 import { ComponentPropsWithoutRef, MouseEventHandler } from 'react'
 
-import { resolveStyle } from '../../../assets/utils/customFC'
+import { resolveStyle } from '@/functions'
 
 // *** Blueprint ***
 

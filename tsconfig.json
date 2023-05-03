@@ -14,11 +14,14 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
+    "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"],
-      "@/assets": ["./src/assets"],
-      "@/logger": ["./src/assets/utils/logger"],
-      "@/env": ["./src/env.mjs"]
+      "@/*": ["src/*"],
+      "@/assets/*": ["src/assets/*"],
+      "@/functions": ["src/assets/utils/functions"],
+      "@/client": ["src/assets/utils/client"],
+      "@/logger": ["src/assets/utils/logger"],
+      "@/env": ["src/env.mjs"]
     }
   },
   "include": [
