@@ -7,15 +7,12 @@ const Todos = () => {
   const toDoState = isDone ? 'done' : 'to do'
   return (
     <>
-      <DeleteButton
-        onClick={() => console.log('delete button in page')}
-        disabled={false}
-      />
+      <DeleteButton onClick={() => console.log('delete button in page')} />
+
       <UpdateButton
         onClick={() => {
           setIsDone((state) => !state)
         }}
-        disabled={false}
         text={toDoState}
       />
     </>
