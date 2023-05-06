@@ -8,6 +8,7 @@
     "import/no-duplicates": "error"
   },
   "overrides": [
+    // override "simple-import-sort" config
     {
       "files": ["**/*.js", "**/*.ts", "**/*.tsx"],
       "rules": {
