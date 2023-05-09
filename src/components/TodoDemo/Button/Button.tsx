@@ -1,41 +1,69 @@
-import { MouseEventHandler } from 'react'
+import { cva, VariantProps } from 'class-variance-authority'
+import { ComponentPropsWithoutRef } from 'react'
+import { BiCheckCircle, BiChevronsRight, BiTrash } from 'react-icons/bi'
 
-import { resolveStyle } from '@/functions'
+import { classNames } from '@/assets/utils/functions'
 
-// *** Button Blueprint ***
+import { mockButtonProps } from './Button.mocks'
 
-export type ButtonType = {
-  text: 'delete' | 'to do' | 'done'
-  onClick: MouseEventHandler<HTMLButtonElement>
+const buttonVariants = cva(
+  'border-0 px-4 py-2 rounded-full text-white flex gap-2 items-center',
+  {
+    variants: {
+      variant: {
+        delete: 'bg-red-600',
+        'to do': 'bg-blue-600',
+        done: 'bg-green-600'
+      }
+    }
+  }
+)
+
+export type ButtonProps = {
+  buttonText: 'delete' | 'to do' | 'done'
+} & VariantProps<typeof buttonVariants> &
+  ComponentPropsWithoutRef<'button'>
+
+// const buttonColors: Record<ButtonProps['buttonText'], string> = {
+//   delete: 'bg-red-600',
+//   'to do': 'bg-blue-600',
+//   done: 'bg-green-600'
+// }
+
+const buttonIcons: Record<ButtonProps['buttonText'], JSX.Element> = {
+  delete: <BiTrash />,
+  'to do': <BiChevronsRight />,
+  done: <BiCheckCircle />
 }
 
-const baseStyleButton = 'border-0 px-4 py-2 rounded-full text-white flex'
-
-const buttonColors: Record<ButtonType['text'], string> = {
-  delete: 'bg-red-600',
-  'to do': 'bg-blue-600',
-  done: 'bg-green-600'
-}
-export const Button = ({ text, onClick }: ButtonType) => {
+export const Button = ({
+  buttonText,
+  onClick,
+  variant,
+  ...props
+}: ButtonProps) => {
   return (
     <button
-      className={resolveStyle(baseStyleButton, buttonColors[text])}
+      className={classNames(buttonVariants({ variant }))}
       onClick={onClick}
+      {...props}
     >
-      {text}
+      {buttonText} {buttonIcons[buttonText]}
     </button>
   )
 }
 
-// *** Variant delete button***
-export const DeleteButton = ({ onClick }: Pick<ButtonType, 'onClick'>) => {
-  return <Button onClick={onClick} text="delete" />
+export const DeleteButton = ({ onClick }: Partial<ButtonProps>) => {
+  const props = { ...mockButtonProps.destroy, onClick }
+  return <Button {...props} />
 }
 
-// *** Variant update button***
-export const UpdateButton = ({
-  onClick,
-  text
-}: ButtonType & { text: 'to do' | 'done' }) => {
-  return <Button onClick={onClick} text={text} />
+export const TodoButton = ({ onClick }: Partial<ButtonProps>) => {
+  const props = { ...mockButtonProps.todo, onClick }
+  return <Button {...props} />
+}
+
+export const DoneButton = ({ onClick }: Partial<ButtonProps>) => {
+  const props = { ...mockButtonProps.done, onClick }
+  return <Button {...props} />
 }

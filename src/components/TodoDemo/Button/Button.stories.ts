@@ -12,6 +12,14 @@ const meta: Meta<typeof Button> = {
 export default meta
 type Story = StoryObj<typeof Button>
 
-export const ButtonStories: Story = {
-  args: mockButtonProps.button
+export const deleteButton: Story = {
+  args: mockButtonProps.destroy
+}
+
+export const todoButton: Story = {
+  args: mockButtonProps.todo
+}
+
+export const doneButton: Story = {
+  args: mockButtonProps.done
 }
