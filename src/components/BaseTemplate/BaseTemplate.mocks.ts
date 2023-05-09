@@ -1,16 +1,25 @@
-import { BaseTemplateType } from './BaseTemplate'
+import { BaseTemplateProps } from './BaseTemplate'
 
-const primary: BaseTemplateType = {
-  variantStyle: 'border-blue-600 bg-blue-200',
-  text: 'Primary Base Template'
+const ok: BaseTemplateProps = {
+  text: 'this is an ok text for OkTemplateBase',
+  variant: 'ok',
+  fontWeight: null
 }
 
-const secondary: BaseTemplateType = {
-  variantStyle: 'border-red-600 bg-red-200',
-  text: 'secondary Base Template'
+const warning: BaseTemplateProps = {
+  text: 'this is a warning text for WarningTemplateBase',
+  variant: 'warning',
+  fontWeight: 'medium'
+}
+
+const alert: BaseTemplateProps = {
+  text: 'this is an alert text for AlertTemplateBase',
+  variant: 'alert',
+  fontWeight: 'bold'
 }
 
 export const mockBaseTemplateProps = {
-  primary,
-  secondary
+  ok,
+  warning,
+  alert
 }

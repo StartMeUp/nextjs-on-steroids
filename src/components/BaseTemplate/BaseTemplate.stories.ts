@@ -12,10 +12,14 @@ const meta: Meta<typeof BaseTemplate> = {
 export default meta
 type Story = StoryObj<typeof BaseTemplate>
 
-export const PrimaryBaseTemplate: Story = {
-  args: mockBaseTemplateProps.primary
+export const OkBaseTemplate: Story = {
+  args: mockBaseTemplateProps.ok
 }
 
-export const SecondaryBaseTemplate: Story = {
-  args: mockBaseTemplateProps.secondary
+export const WarningBaseTemplate: Story = {
+  args: mockBaseTemplateProps.warning
+}
+
+export const AlertBaseTemplate: Story = {
+  args: mockBaseTemplateProps.alert
 }
