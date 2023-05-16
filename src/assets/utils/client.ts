@@ -33,7 +33,7 @@ export async function client<T>(
     ...customConfig
   }
 
-  return window.fetch(url, config).then(async (response) => {
+  return fetch(url, config).then(async (response) => {
     if (response.status === 401) {
       return Promise.reject(new Error("You're not authenticated"))
     }

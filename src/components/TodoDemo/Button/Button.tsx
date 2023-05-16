@@ -7,7 +7,7 @@ import { classNames } from '@/assets/utils/functions'
 import { mockButtonProps } from './Button.mocks'
 
 const buttonVariants = cva(
-  'border-0 px-4 py-2 rounded-full text-white flex gap-2 items-center',
+  'border-0 px-4 py-2 rounded-full text-white flex gap-2 items-center shrink-0',
   {
     variants: {
       variant: {
