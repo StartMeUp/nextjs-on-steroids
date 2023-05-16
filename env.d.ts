@@ -11,5 +11,6 @@ namespace NodeJS {
     IS_DEV: boolean
     IS_PROD: boolean
     IS_TEST: boolean
+    NEXT_PUBLIC_DUMMYJSON_API: 'https://dummyjson.com'
   }
 }
