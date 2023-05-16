@@ -1,5 +1,3 @@
-// import { mockTodoProps } from './Todo.mocks'
-
 import { TodoType } from '@/assets/schemas/todo.schema'
 
 import { DeleteButton, DoneButton, TodoButton } from '../Button/Button'

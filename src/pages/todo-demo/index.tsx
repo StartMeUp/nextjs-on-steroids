@@ -3,11 +3,16 @@ import { useState } from 'react'
 
 import { getTodos } from '@/assets/utils/fetch'
 import { Todo } from '@/components/TodoDemo/Todo/Todo'
+import { log } from '@/logger'
 
 const Todos = () => {
   const { data } = useQuery({ queryKey: ['todos'], queryFn: getTodos })
+  // dummyjson.com is not a real server that can handle posting or updating data
+  // here we only get the data from server side, and modify it locally using a useState
   const [todos, setTodos] = useState(data?.todos.slice(0, 10))
-  console.log('todos =>', todos)
+
+  // how to use the logger
+  log.info('todos', todos)
 
   const handleDelete = (todoId: number) =>
     setTodos((currentTodos) =>
@@ -40,6 +45,8 @@ const Todos = () => {
 }
 
 export const getStaticProps = async () => {
+  // how to manage server side data with "@tanstack/react-query"
+  // it fetches data from the backend and then hydrates the front-end with the result
   const queryClient = new QueryClient()
 
   await queryClient.prefetchQuery(['todos'], getTodos)

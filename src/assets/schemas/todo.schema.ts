@@ -1,3 +1,5 @@
+// This file is for demo purposes
+// You shouldn't keep it in your project
 import { z } from 'zod'
 
 export const todoSchema = z.object({

@@ -1,6 +1,6 @@
 import pino, { Level } from 'pino'
 
-// you might want to display logs in production
+// hide logs in production by default
 // adjust the level of log display
 const shouldDisplayLogs = !process.env.IS_PROD
 
@@ -24,9 +24,13 @@ const levelIcons: Record<Level, string> = {
   fatal: '💀'
 }
 
-const displayLog = (level: Level) => (title: string, msg?: any) => {
+const displayLog = (level: Level) => (title: string, data?: any) => {
   if (shouldDisplayLogs)
-    logger[level](`${levelIcons[level]} ${title}${msg ? ' => ' + msg : ''}`)
+    logger[level](
+      `${levelIcons[level]} ${title}${
+        data ? ' => ' + JSON.stringify(data, null, 2) : ''
+      }`
+    )
 }
 
 export const log = {
@@ -44,7 +48,7 @@ export const errorLog = (
   errorMsg: 'Error msg only' | 'full Error object' = 'Error msg only'
 ) => {
   if (error instanceof Error) {
-    const msg = errorMsg === 'Error msg only' ? error.message : error
-    log.error(title, msg)
+    const data = errorMsg === 'Error msg only' ? error.message : error
+    log.error(title, data)
   }
 }
