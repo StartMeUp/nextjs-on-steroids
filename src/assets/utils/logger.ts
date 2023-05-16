@@ -9,7 +9,7 @@ const logger = pino({
   transport: {
     target: 'pino-pretty',
     options: {
-      ignore: 'pid,hostname,level',
+      ignore: 'pid,hostname',
       translateTime: 'SYS:HH:MM:ss'
     }
   }

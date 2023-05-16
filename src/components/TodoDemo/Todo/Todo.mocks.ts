@@ -1,16 +1,22 @@
 import { TodoProps } from './Todo'
 
-const todo: TodoProps = {
+const uncompletedTodo: TodoProps = {
   todo: {
     id: 1,
     todo: 'This is a mock todo',
-    completed: true,
+    completed: false,
     userId: 4
   },
   handleDelete: () => console.log('mock delete button'),
   handleUpdate: () => console.log('mock update button')
 }
 
+const completedTodo: TodoProps = {
+  ...uncompletedTodo,
+  todo: { ...uncompletedTodo.todo, completed: true }
+}
+
 export const mockTodoProps = {
-  todo
+  completedTodo,
+  uncompletedTodo
 }

@@ -12,6 +12,10 @@ const meta: Meta<typeof Todo> = {
 export default meta
 type Story = StoryObj<typeof Todo>
 
-export const OkTodo: Story = {
-  args: mockTodoProps.todo
+export const CompletedTodo: Story = {
+  args: mockTodoProps.completedTodo
+}
+
+export const UncompletedTodo: Story = {
+  args: mockTodoProps.uncompletedTodo
 }

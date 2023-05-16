@@ -6,7 +6,7 @@ import { Todo } from '@/components/TodoDemo/Todo/Todo'
 import { log } from '@/logger'
 
 const Todos = () => {
-  const { data } = useQuery({ queryKey: ['todos'], queryFn: getTodos })
+  const { data, isError } = useQuery({ queryKey: ['todos'], queryFn: getTodos })
   // dummyjson.com is not a real server that can handle posting or updating data
   // here we only get the data from server side, and modify it locally using a useState
   const [todos, setTodos] = useState(data?.todos.slice(0, 10))
@@ -28,7 +28,8 @@ const Todos = () => {
 
   return (
     <main className="m-6 mx-auto max-w-3xl">
-      {todos ? (
+      {isError && <p>Error retrieving todos</p>}
+      {!!todos &&
         todos.map((todo) => (
           <Todo
             key={todo.id}
@@ -36,10 +37,7 @@ const Todos = () => {
             handleDelete={() => handleDelete(todo.id)}
             handleUpdate={() => handleUpdate(todo.id)}
           />
-        ))
-      ) : (
-        <p>Error retrieving todos</p>
-      )}
+        ))}
     </main>
   )
 }
