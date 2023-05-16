@@ -7,8 +7,8 @@ const uncompletedTodo: TodoProps = {
     completed: false,
     userId: 4
   },
-  handleDelete: () => console.log('mock delete button'),
-  handleUpdate: () => console.log('mock update button')
+  onHandleDelete: () => console.log('mock delete button'),
+  onHandleUpdate: () => console.log('mock update button')
 }
 
 const completedTodo: TodoProps = {

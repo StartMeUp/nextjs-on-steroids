@@ -53,17 +53,17 @@ export const Button = ({
   )
 }
 
-export const DeleteButton = ({ onClick }: Partial<ButtonProps>) => {
+export const DeleteButton = ({ onClick }: Pick<ButtonProps, 'onClick'>) => {
   const props = { ...mockButtonProps.destroy, onClick }
   return <Button {...props} />
 }
 
-export const TodoButton = ({ onClick }: Partial<ButtonProps>) => {
+export const ToCompleteButton = ({ onClick }: Pick<ButtonProps, 'onClick'>) => {
   const props = { ...mockButtonProps.todo, onClick }
   return <Button {...props} />
 }
 
-export const DoneButton = ({ onClick }: Partial<ButtonProps>) => {
+export const CompletedButton = ({ onClick }: Pick<ButtonProps, 'onClick'>) => {
   const props = { ...mockButtonProps.done, onClick }
   return <Button {...props} />
 }

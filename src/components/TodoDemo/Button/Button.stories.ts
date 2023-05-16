@@ -16,10 +16,10 @@ export const DeleteButton: Story = {
   args: mockButtonProps.destroy
 }
 
-export const TodoButton: Story = {
+export const ToCompleteButton: Story = {
   args: mockButtonProps.todo
 }
 
-export const DoneButton: Story = {
+export const CompletedButton: Story = {
   args: mockButtonProps.done
 }

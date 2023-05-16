@@ -14,12 +14,12 @@ const Todos = () => {
   // how to use the logger
   log.info('todos', todos)
 
-  const handleDelete = (todoId: number) =>
+  const onHandleDelete = (todoId: number) =>
     setTodos((currentTodos) =>
       currentTodos?.filter((todo) => todo.id !== todoId)
     )
 
-  const handleUpdate = (todoId: number) =>
+  const onHandleUpdate = (todoId: number) =>
     setTodos((currentTodos) =>
       currentTodos?.map((todo) =>
         todo.id !== todoId ? todo : { ...todo, completed: !todo.completed }
@@ -34,8 +34,8 @@ const Todos = () => {
           <Todo
             key={todo.id}
             todo={todo}
-            handleDelete={() => handleDelete(todo.id)}
-            handleUpdate={() => handleUpdate(todo.id)}
+            onHandleDelete={() => onHandleDelete(todo.id)}
+            onHandleUpdate={() => onHandleUpdate(todo.id)}
           />
         ))}
     </main>
