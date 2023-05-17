@@ -1,64 +1,18 @@
+import { faker } from '@faker-js/faker'
+
 import { TodoType } from '@/assets/schemas/todo.schema'
 
-export const mockTodos: TodoType[] = [
-  {
-    id: 1,
-    completed: true,
-    todo: 'Do something nice for someone I care about',
-    userId: 26
-  },
-  {
-    id: 2,
-    completed: false,
-    todo: 'Memorize the fifty states and their capitals',
-    userId: 48
-  },
-  {
-    id: 3,
-    completed: false,
-    todo: 'Watch a classic movie',
-    userId: 4
-  },
-  {
-    id: 4,
-    completed: false,
-    todo: 'Contribute code or a monetary donation to an open-source software project',
-    userId: 48
-  },
-  {
-    id: 5,
-    completed: false,
-    todo: "Solve a Rubik's cube",
-    userId: 31
-  },
-  {
-    id: 6,
-    completed: false,
-    todo: 'Bake pastries for me and neighbor',
-    userId: 39
-  },
-  {
-    id: 7,
-    completed: false,
-    todo: 'Go see a Broadway production',
-    userId: 32
-  },
-  {
-    id: 8,
-    completed: true,
-    todo: 'Write a thank you letter to an influential person in my life',
-    userId: 13
-  },
-  {
-    id: 9,
-    completed: false,
-    todo: 'Invite some friends over for a game night',
-    userId: 47
-  },
-  {
-    id: 10,
-    completed: false,
-    todo: 'Have a football scrimmage with some friends',
-    userId: 19
+const makeMockTodos = (): TodoType[] => {
+  const mockTodos = []
+  for (let i = 1; i <= faker.number.int({ min: 4, max: 10 }); i++) {
+    mockTodos.push({
+      id: i,
+      completed: faker.datatype.boolean(0.4),
+      todo: faker.lorem.sentence({ min: 5, max: 15 }),
+      userId: faker.number.int({ min: 1, max: 30 })
+    })
   }
-]
+  return mockTodos
+}
+
+export const mockTodos: TodoType[] = makeMockTodos()

@@ -11,7 +11,9 @@
     "build-storybook": "storybook build",
     "prettier": "prettier --write .",
     "prepare": "husky install",
-    "tailwind-config-viewer": "tailwind-config-viewer -o"
+    "tailwind-config-viewer": "tailwind-config-viewer -o",
+    "test": "vitest",
+    "coverage": "vitest run --coverage"
   },
   "dependencies": {
     "@t3-oss/env-nextjs": "^0.2.2",
@@ -41,6 +43,7 @@
   "devDependencies": {
     "@commitlint/cli": "^17.6.1",
     "@commitlint/config-conventional": "^17.6.1",
+    "@faker-js/faker": "^8.0.1",
     "@storybook/addon-essentials": "^7.0.12",
     "@storybook/addon-interactions": "^7.0.12",
     "@storybook/addon-links": "^7.0.12",
@@ -61,7 +64,8 @@
     "prettier-plugin-tailwindcss": "^0.2.8",
     "storybook": "^7.0.12",
     "tailwind-config-viewer": "^1.7.2",
-    "tailwindcss-debug-screens": "^2.2.1"
+    "tailwindcss-debug-screens": "^2.2.1",
+    "vitest": "^0.31.0"
   },
   "engines": {
     "node": ">=18.16.0",
