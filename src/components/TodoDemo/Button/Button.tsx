@@ -58,12 +58,27 @@ export const DeleteButton = ({ onClick }: Pick<ButtonProps, 'onClick'>) => {
   return <Button {...props} />
 }
 
-export const ToCompleteButton = ({ onClick }: Pick<ButtonProps, 'onClick'>) => {
-  const props = { ...mockButtonProps.todo, onClick }
-  return <Button {...props} />
-}
+export const UpdateButton = ({
+  onClick,
+  buttonText
+}: ButtonProps & { buttonText: 'to do' | 'done' }) => (
+  <Button buttonText={buttonText} variant={buttonText} onClick={onClick} />
+)
 
-export const CompletedButton = ({ onClick }: Pick<ButtonProps, 'onClick'>) => {
-  const props = { ...mockButtonProps.done, onClick }
-  return <Button {...props} />
-}
+export const ToCompleteButton = ({ onClick }: Pick<ButtonProps, 'onClick'>) => (
+  <UpdateButton onClick={onClick} buttonText="to do" />
+)
+
+export const DoneButton = ({ onClick }: Pick<ButtonProps, 'onClick'>) => (
+  <UpdateButton onClick={onClick} buttonText="done" />
+)
+
+// export const ToCompleteButton = ({ onClick }: Pick<ButtonProps, 'onClick'>) => {
+//   const props = { ...mockButtonProps.todo, onClick }
+//   return <Button {...props} />
+// }
+
+// export const DoneButton = ({ onClick }: Pick<ButtonProps, 'onClick'>) => {
+//   const props = { ...mockButtonProps.done, onClick }
+//   return <Button {...props} />
+// }

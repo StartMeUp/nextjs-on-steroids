@@ -20,6 +20,6 @@ export const ToCompleteButton: Story = {
   args: mockButtonProps.todo
 }
 
-export const CompletedButton: Story = {
+export const DoneButton: Story = {
   args: mockButtonProps.done
 }
